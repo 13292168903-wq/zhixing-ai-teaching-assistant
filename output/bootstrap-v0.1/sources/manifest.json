@@ -1,0 +1,104 @@
+{
+  "retrieved_at_utc": "2026-10-20T09:56:29.128117+00:00",
+  "sources": [
+    {
+      "id": "py_intro",
+      "url": "https://docs.python.org/3.13/tutorial/introduction.html",
+      "license": "PSF-2.0; documentation code also 0BSD",
+      "path": "sources/raw/py_intro.html",
+      "resolved_url": "https://docs.python.org/3.13/tutorial/introduction.html",
+      "status": "downloaded",
+      "bytes": 70461,
+      "sha256": "06ef0210a1ea9bffc8d5533cefab1d7c92bf05fce713f5493acab4602575cb16",
+      "cached": false
+    },
+    {
+      "id": "py_control",
+      "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+      "license": "PSF-2.0; documentation code also 0BSD",
+      "path": "sources/raw/py_control.html",
+      "resolved_url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+      "status": "downloaded",
+      "bytes": 138437,
+      "sha256": "b5e466295554e2deab3ca9990d25c7376f1223ec1cc330de4f377564b4e87651",
+      "cached": false
+    },
+    {
+      "id": "py_data",
+      "url": "https://docs.python.org/3.13/tutorial/datastructures.html",
+      "license": "PSF-2.0; documentation code also 0BSD",
+      "path": "sources/raw/py_data.html",
+      "resolved_url": "https://docs.python.org/3.13/tutorial/datastructures.html",
+      "status": "downloaded",
+      "bytes": 99846,
+      "sha256": "cb3bd2f67923b0deab774daa811fb93238d91c50da9abb407800e5eafbd46f04",
+      "cached": false
+    },
+    {
+      "id": "py_license",
+      "url": "https://docs.python.org/3.13/license.html",
+      "license": "PSF-2.0 / 0BSD notices",
+      "path": "sources/raw/py_license.html",
+      "resolved_url": "https://docs.python.org/3.13/license.html",
+      "status": "downloaded",
+      "bytes": 87025,
+      "sha256": "4470e50d5c4495ad24a0cad01b57daf4b30158355369ed14f48f2a0c2eb0f6e6",
+      "cached": false
+    },
+    {
+      "id": "ai_glossary",
+      "url": "https://developers.google.com/machine-learning/glossary",
+      "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+      "path": "sources/raw/ai_glossary.html",
+      "resolved_url": "https://developers.google.com/machine-learning/glossary",
+      "status": "downloaded",
+      "bytes": 794036,
+      "sha256": "dd5283cf052b870c7bc36ef4ea25cc9edf8bb8668abb701e015cbada8dc084bf",
+      "cached": false
+    },
+    {
+      "id": "ai_split",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+      "path": "sources/raw/ai_split.html",
+      "resolved_url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "status": "downloaded",
+      "bytes": 154653,
+      "sha256": "152ae066f1b975243ea730035c786df4a7b5c81cb83d794e294474c20ec7548a",
+      "cached": false
+    },
+    {
+      "id": "ai_overfit",
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+      "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+      "path": "sources/raw/ai_overfit.html",
+      "resolved_url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+      "status": "downloaded",
+      "bytes": 157181,
+      "sha256": "80453a5f29cfca80648a39f03e08f945e9ccb47aeca7310637af05c418f4d791",
+      "cached": false
+    },
+    {
+      "id": "mbpp_sanitized",
+      "url": "https://raw.githubusercontent.com/google-research/google-research/master/mbpp/sanitized-mbpp.json",
+      "license": "CC-BY-4.0 per Google Research dataset card",
+      "path": "sources/raw/mbpp_sanitized.json",
+      "resolved_url": "https://raw.githubusercontent.com/google-research/google-research/master/mbpp/sanitized-mbpp.json",
+      "status": "downloaded",
+      "bytes": 255053,
+      "sha256": "ca95deaa9a01ef0a6f439f88bcf0dd3db3563d22f22aad6cae04ebb9a8d8c8e9",
+      "cached": false
+    },
+    {
+      "id": "mbpp_card",
+      "url": "https://huggingface.co/datasets/google-research-datasets/mbpp/raw/main/README.md",
+      "license": "dataset notice: CC-BY-4.0",
+      "path": "sources/raw/mbpp_card.md",
+      "resolved_url": "https://huggingface.co/datasets/google-research-datasets/mbpp/raw/main/README.md",
+      "status": "downloaded",
+      "bytes": 9058,
+      "sha256": "6377d5c76ba46b9e650daa6d5eb592e671c9b15586e39f23f50ed9bf2ac54cf6",
+      "cached": false
+    }
+  ]
+}

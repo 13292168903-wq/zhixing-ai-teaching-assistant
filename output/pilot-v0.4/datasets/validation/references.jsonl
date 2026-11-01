@@ -1,0 +1,20 @@
+{"id":"P04-python-03-1","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-03-2","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-python-07-1","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-07-2","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-python-11-1","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":true,"answer":"1 2","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-11-2","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":false,"answer":"1 2","expected_action":"probe_contradiction"}}
+{"id":"P04-python-15-1","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":true,"answer":"1 1","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-15-2","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":false,"answer":"1 1","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-19-1","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":true,"answer":"7","expected_conflict":false}}
+{"id":"P04-python-19-2","reference":{"source_keywords":["default"],"human_review":"pending","expected_independent":false,"answer":"7","expected_conflict":true}}
+{"id":"P04-ai_literacy-03-1","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-03-2","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-ai_literacy-07-1","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-07-2","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-ai_literacy-11-1","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-11-2","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"probe_contradiction"}}
+{"id":"P04-ai_literacy-15-1","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-15-2","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-19-1","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":true,"answer":"7","expected_conflict":false}}
+{"id":"P04-ai_literacy-19-2","reference":{"source_keywords":["overfitting"],"human_review":"pending","expected_independent":false,"answer":"7","expected_conflict":true}}

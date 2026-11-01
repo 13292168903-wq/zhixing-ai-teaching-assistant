@@ -1,0 +1,30 @@
+{"id": "E-python-011", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "14"}}}
+{"id": "E-python-012", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "14"}}}
+{"id": "E-python-019", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3, 5, 7]"}}}
+{"id": "E-python-020", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3, 5, 7]"}}}
+{"id": "E-python-035", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "8"}}}
+{"id": "E-python-036", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "8"}}}
+{"id": "E-python-037", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "None 2"}}}
+{"id": "E-python-038", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "None 2"}}}
+{"id": "E-python-039", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3, 1, 2] [1, 2, 3]"}}}
+{"id": "E-python-040", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3, 1, 2] [1, 2, 3]"}}}
+{"id": "E-ai_literacy-005", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-006", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-027", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-028", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-031", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-032", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-035", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-036", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-037", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-038", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-platform-001", "tool_fixtures": {"scope_course": {"course_id": "ai_literacy", "fixture_only": true, "learner_id": "synthetic-001", "max_score": 10, "observation": "同一学生的另一课程有成绩，但当前课程没有该测验。", "record_course_id": "python", "score": 8}}}
+{"id": "E-platform-002", "tool_fixtures": {"scope_course": {"course_id": "ai_literacy", "fixture_only": true, "learner_id": "synthetic-001", "max_score": 10, "observation": "同一学生当前课程已有被授权的测验成绩。", "record_course_id": "ai_literacy", "score": 8}}}
+{"id": "E-platform-011", "tool_fixtures": {"check_explanation": {"answer_correct": true, "course_id": "python", "explanation_consistent": false, "fixture_only": true, "learner_id": "synthetic-001", "observation": "结果正确，但理由与课程证据直接矛盾。"}}}
+{"id": "E-platform-012", "tool_fixtures": {"check_explanation": {"answer_correct": true, "course_id": "python", "explanation_consistent": true, "fixture_only": true, "learner_id": "synthetic-001", "observation": "结果正确，理由也由证据支持。"}}}
+{"id": "E-platform-013", "tool_fixtures": {"localize_error": {"answer_correct": false, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "method_correct": true, "observation": "方法正确但抄写最后数值出错。"}}}
+{"id": "E-platform-014", "tool_fixtures": {"localize_error": {"answer_correct": true, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "method_correct": true, "observation": "结果和方法均正确。"}}}
+{"id": "E-platform-027", "tool_fixtures": {"respect_teaching_mode": {"attempted": false, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "课程处于学习模式且要求先尝试，学生尚未作答。", "teacher_allows_solution": false, "teaching_mode": "learning"}}}
+{"id": "E-platform-028", "tool_fixtures": {"respect_teaching_mode": {"attempted": true, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "教师允许解析模式，学生已完成并主动要求完整解释。", "teacher_allows_solution": true, "teaching_mode": "solution"}}}
+{"id": "E-platform-039", "tool_fixtures": {"select_verified_experience": {"conditions_match": true, "course_id": "python", "experience_status": "pending", "fixture_only": true, "learner_id": "synthetic-001", "observation": "经验仍是待验证状态。"}}}
+{"id": "E-platform-040", "tool_fixtures": {"select_verified_experience": {"conditions_match": true, "course_id": "python", "experience_status": "verified_enabled", "fixture_only": true, "learner_id": "synthetic-001", "observation": "经验已验证，适用条件与当前任务匹配。"}}}

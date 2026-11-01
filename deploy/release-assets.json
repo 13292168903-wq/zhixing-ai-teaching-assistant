@@ -1,0 +1,15 @@
+{
+  "release_tag": "runtime-v0.8",
+  "assets": [
+    {
+      "asset": "zhixing-dsh-runtime.zip",
+      "bytes": 237636242,
+      "sha256": "3fc28da6764c19c4e049b6804cdba544f82607ba2b72967eaa81aa86869e101d"
+    },
+    {
+      "asset": "zhixing-portable-v1.zip",
+      "bytes": 249786373,
+      "sha256": "c1c3d99fea242b630a5f7d8312f9bd737cf627c23aa0769c008df72a49961292"
+    }
+  ]
+}

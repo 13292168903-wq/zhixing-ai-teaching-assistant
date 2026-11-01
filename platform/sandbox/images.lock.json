@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.7.0",
+  "prepared_at": "2026-10-21T15:15:24.945Z",
+  "platform": "linux/amd64",
+  "python": {
+    "tag": "python:3.13-slim-bookworm",
+    "image": "python@sha256:73aa5faee130c60da030e105ec971ccf57473fbd22ce73bd6fc9ba99a40b838d",
+    "derived_tag": "zhixing-python:0.7",
+    "dockerfile_sha256": "5331a16194c35ca369f2a468a13f68243ade3790954cc4e2ea9a8d81601ac616"
+  },
+  "gcc": {
+    "tag": "gcc:15-trixie",
+    "image": "gcc@sha256:cb0f7aae7c9a09ee9304780373fed37f06c8263aacb307607dabb6898ab8e4e3",
+    "derived_tag": "zhixing-gcc:0.7",
+    "dockerfile_sha256": "5331a16194c35ca369f2a468a13f68243ade3790954cc4e2ea9a8d81601ac616"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "0.1.0",
+  "course_id": "ai_literacy",
+  "version": "0.1.0",
+  "title": "AI 通识示范课包",
+  "review_status": "draft_not_teacher_approved",
+  "concepts": [
+    {
+      "id": "train_infer",
+      "title": "训练与推理",
+      "learning_objective": "能解释训练与推理，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-train_infer-1",
+        "EV-train_infer-2"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "splits",
+      "title": "数据划分与泄漏",
+      "learning_objective": "能解释数据划分与泄漏，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-splits-1"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "overfit",
+      "title": "过拟合与泛化",
+      "learning_objective": "能解释过拟合与泛化，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-overfit-1"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "hallucination",
+      "title": "生成内容与事实核验",
+      "learning_objective": "能解释生成内容与事实核验，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-hallucination-1"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    }
+  ],
+  "required_capabilities": [
+    "retrieve_evidence",
+    "generate_task",
+    "verify_submission"
+  ],
+  "teaching_policy": {
+    "mode": "learning",
+    "state_writer": "teaching_kernel_only",
+    "insufficient_evidence": "unconfirmed",
+    "mastery_rule": "不能仅据单次正确、完整答案后照抄或解释矛盾判独立掌握"
+  },
+  "grading": {
+    "objective": "reference output / structured check",
+    "open": "required points + unacceptable claims; human review pending"
+  },
+  "data_access": {
+    "learning": "public/learning_inputs.jsonl",
+    "eval_reference": "evaluator_only; never mount in student runtime"
+  }
+}

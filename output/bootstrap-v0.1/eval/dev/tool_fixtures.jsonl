@@ -1,0 +1,60 @@
+{"id": "E-python-001", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "20 99"}}}
+{"id": "E-python-002", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "20 99"}}}
+{"id": "E-python-005", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0"}}}
+{"id": "E-python-006", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0"}}}
+{"id": "E-python-009", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "False True"}}}
+{"id": "E-python-010", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "False True"}}}
+{"id": "E-python-013", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0"}}}
+{"id": "E-python-014", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0"}}}
+{"id": "E-python-015", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0\n1\nok"}}}
+{"id": "E-python-016", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "0\n1\nok"}}}
+{"id": "E-python-017", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "3"}}}
+{"id": "E-python-018", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "3"}}}
+{"id": "E-python-021", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "2"}}}
+{"id": "E-python-022", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "2"}}}
+{"id": "E-python-023", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "1 1"}}}
+{"id": "E-python-024", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "1 1"}}}
+{"id": "E-python-025", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "1 2"}}}
+{"id": "E-python-026", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "1 2"}}}
+{"id": "E-python-033", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3] None"}}}
+{"id": "E-python-034", "tool_fixtures": {"reference_executor": {"fixture_only": true, "status": "success", "stdout": "[3] None"}}}
+{"id": "E-ai_literacy-001", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-002", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-007", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-008", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-009", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-010", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-train_infer-1"], "status": "success"}}}
+{"id": "E-ai_literacy-011", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-012", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-013", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-014", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-015", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-016", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-splits-1"], "status": "success"}}}
+{"id": "E-ai_literacy-021", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-022", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-023", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-024", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-overfit-1"], "status": "success"}}}
+{"id": "E-ai_literacy-033", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-034", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-039", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-ai_literacy-040", "tool_fixtures": {"course_evidence": {"evidence_ids": ["EV-hallucination-1"], "status": "success"}}}
+{"id": "E-platform-003", "tool_fixtures": {"scope_learner": {"authorized": false, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "记录属于另一学生且未授权。", "record_learner_id": "synthetic-002"}}}
+{"id": "E-platform-004", "tool_fixtures": {"scope_learner": {"authorized": true, "course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "请求的是本人当前课程的错题记录。", "record_learner_id": "synthetic-001"}}}
+{"id": "E-platform-005", "tool_fixtures": {"retrieve_evidence": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "matches": [], "observation": "当前资料没有考试日期。"}}}
+{"id": "E-platform-006", "tool_fixtures": {"retrieve_evidence": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "matches": [{"id": "teacher-notice-1", "text": "期末考试时间为 2026-12-18。"}], "observation": "教师发布通知明确给出 2026-12-18。"}}}
+{"id": "E-platform-015", "tool_fixtures": {"clarify_reference": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "前文有两个互斥问题，无法判断指代。", "unresolved_questions": 2}}}
+{"id": "E-platform-016", "tool_fixtures": {"clarify_reference": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "前文只有一个明确的是非问题。", "unresolved_questions": 1}}}
+{"id": "E-platform-017", "tool_fixtures": {"test_generalization": {"course_id": "python", "exhaustive_for_stated_finite_scope": false, "fixture_only": true, "learner_id": "synthetic-001", "observation": "只有一个正例，没有证明或覆盖依据。", "sample_count": 1}}}
+{"id": "E-platform-018", "tool_fixtures": {"test_generalization": {"course_id": "python", "exhaustive_for_stated_finite_scope": true, "fixture_only": true, "learner_id": "synthetic-001", "observation": "学生提供了限定范围内的完整枚举核验。", "sample_count": 10}}}
+{"id": "E-platform-021", "tool_fixtures": {"track_hint_level": {"course_id": "python", "fixture_only": true, "hint_level": "full_solution", "hints_used": 1, "learner_id": "synthetic-001", "observation": "已直接展示完整答案后照抄。"}}}
+{"id": "E-platform-022", "tool_fixtures": {"track_hint_level": {"course_id": "python", "fixture_only": true, "hint_level": "concept", "hints_used": 1, "learner_id": "synthetic-001", "observation": "仅获得不含解法的一句概念提示并独立推导。"}}}
+{"id": "E-platform-023", "tool_fixtures": {"request_transfer": {"course_id": "python", "fixture_only": true, "independently_explained": false, "learner_id": "synthetic-001", "observation": "任务只是同题换变量名。", "same_template": true}}}
+{"id": "E-platform-024", "tool_fixtures": {"request_transfer": {"course_id": "python", "fixture_only": true, "independently_explained": true, "learner_id": "synthetic-001", "observation": "任务改变结构，学生无提示解释完成。", "same_template": false}}}
+{"id": "E-platform-025", "tool_fixtures": {"choose_next_action": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "已连续两次同样提示无进展。", "repeated_ineffective_hints": 2}}}
+{"id": "E-platform-026", "tool_fixtures": {"choose_next_action": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "尚未尝试任务，主动选择概念提示。", "repeated_ineffective_hints": 0}}}
+{"id": "E-platform-029", "tool_fixtures": {"limit_mastery_scope": {"course_id": "python", "fixture_only": true, "full_solution_seen": true, "independent_correct_history": 0, "learner_id": "synthetic-001", "observation": "只有单次带完整答案提示的正确。"}}}
+{"id": "E-platform-030", "tool_fixtures": {"limit_mastery_scope": {"course_id": "python", "fixture_only": true, "full_solution_seen": false, "independent_correct_history": 3, "learner_id": "synthetic-001", "observation": "已有同一知识点多个独立正确证据。"}}}
+{"id": "E-platform-031", "tool_fixtures": {"handle_tool_result": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "调用超时，没有可用得分。", "score": null, "status": "timeout"}}}
+{"id": "E-platform-032", "tool_fixtures": {"handle_tool_result": {"course_id": "python", "fixture_only": true, "learner_id": "synthetic-001", "observation": "工具成功且结果有有效依据。", "score": 1, "status": "success"}}}
+{"id": "E-platform-033", "tool_fixtures": {"validate_score": {"course_id": "python", "evidence_valid": false, "fallback_text": "half_credit", "fixture_only": true, "learner_id": "synthetic-001", "observation": "分数字段缺失，但有一个兜底半分文本。", "score": null, "status": "success"}}}
+{"id": "E-platform-034", "tool_fixtures": {"validate_score": {"course_id": "python", "evidence_valid": true, "fallback_text": null, "fixture_only": true, "learner_id": "synthetic-001", "observation": "得分在量规范围内且包含核验记录。", "score": 1, "status": "success"}}}

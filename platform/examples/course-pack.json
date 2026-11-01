@@ -1,0 +1,6 @@
+{
+ "manifest":{"schema_version":"0.1.0","course_id":"evidence_basics","version":"0.1.0","title":"证据核验入门（扩展课示例）","concepts":[{"id":"source_support","title":"出处与内容支持","learning_objective":"区分链接有效与原文支持，说明核验步骤。","evidence_ids":["evidence-basics-1"],"prerequisites":[]}],"required_capabilities":["retrieve_evidence","generate_task","verify_submission"]},
+ "cards":{"concepts":{"source_support":{"aliases":["证据","出处","核验","原文","引用"],"summary":"链接可访问只说明页面存在。判断结论可靠性还要核对原文是否支持断言，以及版本和适用条件。","support":["原文","支持","版本","核对"],"contradictions":["链接有效就证明事实正确"],"probe":"这条原文具体支持哪个断言？"}}},
+ "evidence":[{"id":"evidence-basics-1","concept_id":"source_support","locator":"https://developers.google.com/machine-learning/glossary#hallucination","text":"课程自建教学摘要：生成模型可能给出似是而非的事实断言，需独立核对证据。本条是基于 Google 术语表的中文教学改编，待教师确认。","source_id":"ai_glossary","license":"CC-BY-4.0; Chinese adaptation, see bootstrap source notice"}],
+ "items":[{"id":"L-evidence-basics-001","concept_id":"source_support","assessment_mode":"open","task_type":"concept_explanation","prompt":"一个回答附有可以打开的网页链接，能否据此确认结论正确？请说明进一步核验步骤。","hints":["区分页面存在与页面支持断言。"],"reference":{"answer":"不能仅据链接有效确认，应核对原文、版本及具体断言。","required_points":["链接有效不是充分证据","核对原文是否支持断言"],"explanation":"需要检查具体内容及适用条件。","rubric":{"conclusion":1,"evidence_check":1}}}]
+}

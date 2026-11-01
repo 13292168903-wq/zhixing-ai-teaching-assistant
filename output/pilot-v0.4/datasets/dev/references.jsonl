@@ -1,0 +1,40 @@
+{"id":"P04-python-01-1","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-01-2","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-python-02-1","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-02-2","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-python-05-1","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-05-2","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-python-06-1","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-python-06-2","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-python-09-1","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":true,"answer":"[[7, 4]]","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-09-2","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":false,"answer":"[[7, 4]]","expected_action":"probe_contradiction"}}
+{"id":"P04-python-10-1","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":true,"answer":"[11, 8, 5]","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-10-2","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":false,"answer":"[11, 8, 5]","expected_action":"probe_contradiction"}}
+{"id":"P04-python-13-1","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":true,"answer":"[13, 17, 19]","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-13-2","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":false,"answer":"[13, 17, 19]","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-14-1","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":true,"answer":"26","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-14-2","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":false,"answer":"26","expected_action":"acknowledge_progress"}}
+{"id":"P04-python-17-1","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":true,"expected_state_write":false}}
+{"id":"P04-python-17-2","reference":{"source_keywords":["shallow"],"human_review":"pending","expected_independent":false,"expected_state_write":false}}
+{"id":"P04-python-18-1","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":true,"answer":"7","expected_state_version":1}}
+{"id":"P04-python-18-2","reference":{"source_keywords":["range"],"human_review":"pending","expected_independent":false,"answer":"7","expected_state_version":1}}
+{"id":"P04-ai_literacy-01-1","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-01-2","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-ai_literacy-02-1","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-02-2","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":false,"expected_evidence":true}}
+{"id":"P04-ai_literacy-05-1","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-05-2","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-ai_literacy-06-1","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":true,"expected_evidence":true}}
+{"id":"P04-ai_literacy-06-2","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":false,"expected_evidence":false}}
+{"id":"P04-ai_literacy-09-1","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-09-2","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"probe_contradiction"}}
+{"id":"P04-ai_literacy-10-1","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-10-2","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"probe_contradiction"}}
+{"id":"P04-ai_literacy-13-1","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-13-2","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-14-1","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":true,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-14-2","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":false,"answer":"B","expected_action":"acknowledge_progress"}}
+{"id":"P04-ai_literacy-17-1","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":true,"expected_state_write":false}}
+{"id":"P04-ai_literacy-17-2","reference":{"source_keywords":["training"],"human_review":"pending","expected_independent":false,"expected_state_write":false}}
+{"id":"P04-ai_literacy-18-1","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":true,"answer":"7","expected_state_version":1}}
+{"id":"P04-ai_literacy-18-2","reference":{"source_keywords":["validation"],"human_review":"pending","expected_independent":false,"answer":"7","expected_state_version":1}}

@@ -1,0 +1,7 @@
+{
+  "id": "lab_numeric_check",
+  "version": "1.0.0",
+  "label": "实验数值核验",
+  "handler": "numeric_tolerance",
+  "description": "复用平台受信数值处理器，按题目配置参考值和绝对/相对容差。"
+}

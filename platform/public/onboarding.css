@@ -1,0 +1,7 @@
+.access-card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none}
+.access-card:hover{border-color:var(--green);background:var(--mint)}
+.access-card p{margin-bottom:0}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.form-grid[hidden]{display:none}.field{display:grid;align-content:start;gap:7px;margin:0}.field span{font-size:12px}.field input,.field textarea,.field select{width:100%}
+.panel>details{margin:18px 0}.panel details>summary{cursor:pointer;color:var(--green);line-height:1.8}
+.panel[id]{scroll-margin-top:20px}.panel>.row{margin-top:14px}.panel>input[type=file]{margin:18px 0}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}.access-card{padding:12px}.access-card h3{font-size:12px}}

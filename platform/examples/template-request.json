@@ -1,0 +1,32 @@
+{
+  "course_id": "python_numeric_intro",
+  "title": "Python 数值核验接入示例",
+  "template_id": "numeric",
+  "department": "演示院系",
+  "teacher": "演示教师（待审核）",
+  "classes": ["演示一班", "演示二班"],
+  "topics": [
+    {
+      "id": "integer_addition",
+      "title": "整数加法",
+      "objective": "给出整数相加的结果并解释依据。",
+      "summary": "本课程自建例题用整数加法演示数值核验；题目和评价依据仍需教师审核。",
+      "aliases": ["整数", "加法", "相加"],
+      "support": ["相加", "加法"],
+      "contradictions": [],
+      "source": {
+        "url": "https://docs.python.org/3.13/tutorial/introduction.html#numbers",
+        "text": "自建教学练习：使用 1 与 2 的整数加法演示数值核验。资料依据为 Python 官方教程的数值运算章节；本条是中文教学改编，待教师核对。",
+        "license": "Python documentation PSF License; original Chinese exercise; verify before publication."
+      },
+      "question": {
+        "prompt": "给出整数 1 与 2 相加的数值，并说明使用的运算。",
+        "answer": "3",
+        "required_points": ["使用加法", "结果为 3"],
+        "explanation": "使用整数加法，1 + 2 = 3。",
+        "hint": "先明确这里要求的是整数相加。",
+        "numeric": {"target": 3, "absolute_tolerance": 0.001, "relative_tolerance": 0}
+      }
+    }
+  ]
+}

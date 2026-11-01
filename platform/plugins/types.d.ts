@@ -1,0 +1,5 @@
+export interface PluginManifest { id:string;version:string;sdk_version:string;dependencies:string[];capabilities:string[];operations:string[];entry:string;trusted:boolean;configuration:Record<string,unknown> }
+export interface PluginJob { id:string;course_id:string;plugin_id:string;status:'queued'|'running'|'completed'|'failed'|'interrupted'|'cancelled';input:Record<string,unknown>;progress:Record<string,unknown>;result:unknown;error:string|null }
+export interface GeneratedCandidate { id:string;course_id:string;concept_id:string;family_id:string;split:'development_only';fingerprint:string;prompt:string;reference:unknown;program:unknown;source_refs:string[];validation:unknown;review_status:string }
+export interface SimulationRun { id:string;course_id:string;persona:string;synthetic:true;turns:unknown[];checks:unknown[];policy_snapshot:TeachingPolicyVersion;human_review:string }
+export interface TeachingPolicyVersion { id:string;course_id:string;config:{strategy:'baseline'|'socratic'|'example_first'|'scaffolded'|'transfer';only_uncertain?:boolean};status:string;validation?:unknown;review?:unknown }

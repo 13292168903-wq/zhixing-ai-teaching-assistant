@@ -1,0 +1,26 @@
+{
+  "id": "teaching_policy",
+  "version": "0.7.0",
+  "title": "教学策略",
+  "dependencies": [
+    "retrieve_evidence",
+    "generate_task",
+    "verify_submission"
+  ],
+  "capabilities": [
+    "teaching_policy"
+  ],
+  "operations": [
+    "plan"
+  ],
+  "entry": "plugins/teaching-policy/index.mjs",
+  "sdk_version": "1",
+  "trusted": true,
+  "configuration": {
+    "mode": [
+      "offline",
+      "longcat"
+    ],
+    "course_binding_required": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "asset": "zhixing-dsh-runtime.zip",
+  "sha256": "3fc28da6764c19c4e049b6804cdba544f82607ba2b72967eaa81aa86869e101d",
+  "bytes": 237636242,
+  "git_large_file_policy": "Runtime and portable ZIPs are GitHub Release assets, not tracked source.",
+  "source_identity": "built_snapshot_sha256_no_verified_commit_available"
+}

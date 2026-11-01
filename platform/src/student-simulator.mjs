@@ -1,0 +1,49 @@
+import path from 'node:path';
+import {mkdirSync} from 'node:fs';
+import {Store,uid} from './store.mjs';
+import {TeachingService} from './services.mjs';
+import {PERSONAS,fingerprint} from './plugin-sdk.mjs';
+import {teachingPlan} from './teaching-policies.mjs';
+export function scriptedStudent(persona,item,card,round=0){const reference=item.reference;
+ if(persona==='hint_dependency'&&round===0)return {answer:'',explanation:'还不能独立完成，希望先看一条提示。',request_hint:true,uncertainty:'需要提示'};
+ if(persona==='contradictory_reason')return {answer:reference.answer,explanation:card.contradictions[0]||'这个答案来自猜测，不清楚任何依据。',request_hint:false,uncertainty:''};
+ if(persona==='uncertain')return {answer:'还不能确定',explanation:'我不清楚应该先检查什么。',request_hint:false,uncertainty:'表达不完整'};
+ return {answer:reference.answer,explanation:reference.explanation,request_hint:false,uncertainty:''};
+}
+export function buildSimulationFixtures(data,courses=['python_pilot','ai_literacy_pilot','statistics_pilot']){const records=[];for(const course_id of courses){const course=data.courses.get(course_id);if(!course)continue;const pool=[...data.items.values()].filter(i=>i.course_id===course_id&&i.task_type!=='external_function_task'),representative=course.concepts.map(c=>pool.filter(i=>i.concept_id===c.id).sort((a,b)=>a.id.localeCompare(b.id))[0]).filter(Boolean);if(!representative.length)continue;for(const item of pool){if(representative.length>=4)break;if(!representative.some(i=>i.id===item.id))representative.push(item);}const families=[...new Set(representative.map(i=>i.concept_id))].sort((a,b)=>fingerprint(course_id+a).localeCompare(fingerprint(course_id+b))),validation=new Set(families.slice(0,Math.max(1,Math.floor(families.length/3))));
+ for(let i=0;i<4;i++){const item=representative[i%representative.length],family_id=`simulation:${course_id}:${item.concept_id}`,partition=validation.has(item.concept_id)?'validation':'development';for(const persona of PERSONAS)records.push({id:`P07-S-${course_id}-${i}-${persona}`,course_id,item_id:item.id,concept_id:item.concept_id,family_id,persona,partition,seed:42,scope:'synthetic_fixed_dialogue_contracts_not_learning_outcomes'});}}
+ return records;
+}
+export class StudentSimulator{
+ constructor(lab){this.lab=lab;this.store=lab.store;this.store.db.exec('CREATE TABLE IF NOT EXISTS simulation_runs(id TEXT PRIMARY KEY,job_id TEXT UNIQUE,course_id TEXT,data TEXT,created TEXT)');}
+ list(course){return this.store.db.prepare('SELECT data FROM simulation_runs WHERE (? IS NULL OR course_id=?) ORDER BY created DESC').all(course||null,course||null).map(r=>JSON.parse(r.data));}
+ async run(job,ctx){const input=job.input,course=input.course_snapshot||this.lab.data.courses.get(job.input.course_id);let concept=input.concept_id||course.concepts[0].id;
+  if(input.persona==='contradictory_reason'&&!input.concept_id)concept=course.concepts.find(c=>course.cards.concepts[c.id].contradictions.length)?.id||concept;
+  const folder=path.join(this.lab.varDir,'simulations');mkdirSync(folder,{recursive:true});const data={...this.lab.data,courses:new Map(this.lab.data.courses).set(course.course_id,course),items:new Map(this.lab.data.items)};if(input.item_snapshot)data.items.set(input.item_snapshot.id,input.item_snapshot);const store=new Store(path.join(folder,job.id+'.sqlite')),service=new TeachingService(data,store);service.preview=true;this.lab.policies.bind(service,{fixedPolicy:input.policy_snapshot});const actor={id:'synthetic-'+job.id,role:'teacher',name:'合成学员'};
+  const record={id:job.id,course_id:course.course_id,persona:input.persona,mode:input.mode,policy_snapshot:input.policy_snapshot,synthetic:true,turns:[],checks:[],human_review:'pending',model_context_scope:'public_prompt_hints_and_conversation_only'};
+  const save=()=>this.store.db.prepare('INSERT INTO simulation_runs VALUES(?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data').run(job.id,job.id,course.course_id,JSON.stringify(record),new Date().toISOString());
+  try{const assignment=await ctx.step('assignment',async()=>service.assign({actor,course_id:course.course_id,concept_id:concept,...(input.item_id?{item_id:input.item_id}:{}),count:1}).items[0]);const row=service.assignment(actor,assignment.assignment_id),snapshot=service.snapshot(row),item=snapshot.item,card=snapshot.card||course.cards.concepts[concept];record.public_item=assignment;record.family_id='simulation:'+course.course_id+':'+concept;
+   for(let round=0;round<(input.max_turns||3);round++){
+    ctx.signal.throwIfAborted();const publicContext={course_title:course.title,persona:input.persona,round,question:{prompt:assignment.prompt,options:assignment.options||[],public_tests:assignment.public_tests||[]},hints:record.turns.filter(t=>t.teacher?.hint).map(t=>t.teacher.hint),history:record.turns.map(t=>({student:t.student,teacher:t.teacher?.feedback||t.teacher?.hint||''}))};
+    const utterance=await ctx.step(round+':student',()=>this.lab.model(job,'student_simulator','utterance',publicContext,scriptedStudent(input.persona,item,card,round),ctx.signal));
+    const student=utterance.payload;let teacher;
+    if(student.request_hint)teacher=await ctx.step(round+':hint',async()=>service.hint(actor,assignment.assignment_id,false));
+    else {teacher=await ctx.step(round+':submit',()=>service.submitAsync({actor,assignment_id:assignment.assignment_id,event_id:'sim-'+job.id+'-'+round,answer:student.answer,explanation:student.explanation}));
+     const localPlan=teachingPlan(input.policy_snapshot,{...teacher,probe:item.diagnostic_probe||card.probe,summary:card.summary,concept_id:concept}),planned=await ctx.step(round+':plan',()=>this.lab.model(job,'teaching_policy','plan',{strategy:localPlan.strategy,course_id:course.course_id,concept_ids:course.concepts.map(c=>c.id),prompt:item.prompt,student,diagnosis:{correct:teacher.correct,explanation_status:teacher.explanation_status,next_action:teacher.next_action,hints_used:teacher.hints_used},probe:item.diagnostic_probe||card.probe},localPlan,ctx.signal));
+     if(planned.payload.strategy!==localPlan.strategy||!course.concepts.some(c=>c.id===planned.payload.next_concept_id))throw Error('教学计划超出固定策略或当前课程');teacher={...teacher,model_teaching_plan:planned.payload,model_feedback:planned.payload.question,plan_runtime:planned.runtime};}
+    record.turns.push({round,student,runtime:utterance.runtime,teacher});save();ctx.progress({phase:'simulation',turns:round+1,max_turns:input.max_turns||3});
+    if(!student.request_hint&&!['ask_justification','probe_contradiction'].includes(teacher.next_action))break;
+   }
+   const submissions=record.turns.filter(t=>!t.student.request_hint),last=submissions.at(-1)?.teacher,hasHints=record.turns.some(t=>t.student.request_hint);
+   record.persona_observed=input.persona==='independent'?last?.independent_evidence===true:input.persona==='hint_dependency'?hasHints&&submissions.length>0:input.persona==='contradictory_reason'?last?.explanation_status==='contradiction':['missing','uncertain'].includes(last?.explanation_status);
+   record.checks=[{name:'isolated_synthetic_learner',passed:actor.id.startsWith('synthetic-')},{name:'hints_do_not_count_as_independent',passed:!hasHints||submissions.every(t=>t.teacher.independent_evidence===false)},{name:'contradiction_not_independent',passed:input.persona!=='contradictory_reason'||submissions.every(t=>!t.teacher.independent_evidence)},{name:'student_context_excludes_oracles',passed:record.turns.every(t=>t.runtime.engine==='ds-h')}];record.state=store.states(actor.id,course.course_id);record.status='complete';record.validity=record.persona_observed?'persona_screen_observed':'persona_not_confirmed_do_not_count_as_expected_scenario';save();return record;
+  }finally{store.close();}
+ }
+ compare(course,policies){const fixtures=buildSimulationFixtures(this.lab.data,[course]),byPolicy=[];
+  for(const policy of policies){const rows=[];for(const fixture of fixtures){const store=new Store(':memory:'),service=new TeachingService(this.lab.data,store);service.preview=true;this.lab.policies.bind(service,{fixedPolicy:policy});const actor={id:'replay-'+fixture.id,role:'teacher'},assignment=service.assign({actor,course_id:course,concept_id:fixture.concept_id,item_id:fixture.item_id}).items[0],item=service.snapshot(service.assignment(actor,assignment.assignment_id)).item,card=this.lab.data.courses.get(course).cards.concepts[item.concept_id];if(fixture.persona==='hint_dependency')service.hint(actor,assignment.assignment_id);const script=scriptedStudent(fixture.persona,item,card,fixture.persona==='hint_dependency'?1:0),result=service.submit({actor,assignment_id:assignment.assignment_id,event_id:'replay-'+uid(),answer:script.answer,explanation:script.explanation});
+    const incomplete=['uncertain','missing'].includes(result.explanation_status),targeted=!incomplete||result.teaching_plan.question.includes(card.probe||item.diagnostic_probe||'\u0000'),independence=fixture.persona==='independent'||!result.independent_evidence;
+    rows.push({...fixture,checks_passed:Number(targeted)+Number(independence),checks_total:2,critical_regression:!independence,targeted_question:targeted,independence_preserved:independence,action:result.teaching_plan.move});store.close();}
+   byPolicy.push({policy,rows,development:rows.filter(x=>x.partition==='development').reduce((n,x)=>n+x.checks_passed,0),validation:rows.filter(x=>x.partition==='validation').reduce((n,x)=>n+x.checks_passed,0),critical:rows.filter(x=>x.critical_regression).length});}
+  const dev=new Set(fixtures.filter(x=>x.partition==='development').map(x=>x.family_id)),val=new Set(fixtures.filter(x=>x.partition==='validation').map(x=>x.family_id));return {scope:'fixed_synthetic_contract_replay_not_semantic_quality_or_learning_gains',model:'offline_rules',fixtures:fixtures.length,family_overlap:[...dev].filter(f=>val.has(f)),results:byPolicy};
+ }
+}

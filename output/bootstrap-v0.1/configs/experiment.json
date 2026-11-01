@@ -1,0 +1,41 @@
+{
+  "status": "design_only_not_executed",
+  "seed": 20261020,
+  "initial_version": "v0-frozen",
+  "real_model_enabled": false,
+  "arms": {
+    "A": {
+      "tasks": "fixed_dev",
+      "updates": "none"
+    },
+    "B": {
+      "tasks": "fixed_dev",
+      "updates": "controlled"
+    },
+    "C": {
+      "tasks": "adaptive_dev_only",
+      "updates": "controlled"
+    }
+  },
+  "matched_constraints": [
+    "same_initial_version",
+    "same_effective_task_count",
+    "same_candidate_update_count",
+    "same_review_budget",
+    "same_model_and_tools",
+    "same_call_budget"
+  ],
+  "max_rounds": 3,
+  "max_candidates_per_round": 2,
+  "effective_task_count_per_arm": 60,
+  "max_adaptive_candidates": 30,
+  "budget_status": "disabled_until_small_run_metering_and_budget_set",
+  "release": {
+    "requires_teacher_approval": true,
+    "new_critical_regressions_allowed": 0,
+    "target_error_must_decrease": true
+  },
+  "holdout_access": "final_evaluator_only_after_versions_frozen",
+  "generation_cost": "report_separately",
+  "measured_results": null
+}

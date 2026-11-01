@@ -1,0 +1,42 @@
+let tab='逐题修订',selected='',caseId='';
+export async function renderWorkbench(content,ui){
+ const {el,p,tag,panel,button,api,toast,table,courses,course,refresh}=ui;
+ content.append(el('div',{class:'notice'},'v0.6 · 修改与审核绑定内容指纹。本轮试点课程仍是草稿；结构检查、规则初筛与人工质量判断分别记录。'),el('div',{class:'row'},...['逐题修订','回答证据','课程评测'].map(name=>button(name,async()=>{tab=name;await refresh();},tab===name?'primary':''))));
+ const field=(title,node)=>el('label',{},p(title,'fine'),node),area=(value,label,rows=5)=>el('textarea',{value,rows,'aria-label':label,style:'width:100%;font-family:monospace'});
+ if(tab==='逐题修订'){
+  const items=await api('/api/teacher/items?course='+course);if(!items.length)return content.append(p('当前课程暂无题目。'));
+  if(!items.some(i=>i.id===selected))selected=items[0].id;
+  const choose=el('select',{'aria-label':'修订题目',onChange:async e=>{selected=e.target.value;await refresh();}},...items.map(i=>el('option',{value:i.id},i.id+' · '+i.prompt.slice(0,32))));choose.value=selected;
+  const current=await api('/api/teacher/workbench/items/'+encodeURIComponent(selected)),item=current.item;
+  const box=panel('题目内容与版本审核',el('div',{class:'row'},choose,tag(current.editable?'课程草稿':'只读课程'),tag('审核：'+current.review.status)),p('内容指纹 '+current.digest,'fine'));content.append(box);
+  const prompt=area(item.prompt,'修订题干',6),reference=area(JSON.stringify(item.reference,null,2),'修订参考与量规',12),hints=area(JSON.stringify(item.hints,null,2),'修订提示',3),probe=area(item.diagnostic_probe||'','修订诊断追问',2),notes=area('','修订或审核依据',2),diff=el('pre',{class:'fine',style:'white-space:pre-wrap;max-height:320px;overflow:auto'},'修改字段后显示差异。');
+  const assessment=item.assessment_mode==='plugin'?area(JSON.stringify(item.assessment,null,2),'修订评阅插件参数',5):null;
+  const payload=()=>({prompt:prompt.value,reference:JSON.parse(reference.value),hints:JSON.parse(hints.value),diagnostic_probe:probe.value,...(assessment?{assessment:JSON.parse(assessment.value)}:{})});
+  const update=()=>{try{const revised=payload(),changes=Object.entries(revised).filter(([k,v])=>JSON.stringify(item[k]??'')!==JSON.stringify(v));diff.textContent=changes.length?changes.map(([k,v])=>k+'\n原值：'+JSON.stringify(item[k],null,2)+'\n新值：'+JSON.stringify(v,null,2)).join('\n\n'):'没有改动。';}catch{diff.textContent='JSON 尚未完整；保存前需要修正。';}};
+  [prompt,reference,hints,probe,assessment].filter(Boolean).forEach(n=>n.addEventListener('input',update));
+  box.append(field('题干',prompt),field('参考答案、解析与要点（JSON）',reference),field('提示（JSON 数组）',hints),field('本题诊断追问',probe),el('details',{},el('summary',{},'查看修改差异'),diff),field('修订或审核依据（必填）',notes));
+  if(assessment)box.append(field('评阅插件与容差参数（参考数值应与 target 一致）',assessment));
+  box.append(el('div',{class:'row'},current.editable?button('保存修订 · 重新待审',async()=>{const r=await api('/api/teacher/workbench/items/'+selected,{item:payload(),expected_digest:current.digest,notes:notes.value});toast(r.unchanged?'内容未变化':'已保存；本题审核已失效，其他题目审核保留。');await refresh();},'primary'):null,...[['approved','审核通过当前版本'],['rejected','退回当前版本']].map(([status,label])=>button(label,async()=>{update();if(JSON.stringify(payload())!==JSON.stringify({prompt:item.prompt,reference:item.reference,hints:item.hints,diagnostic_probe:item.diagnostic_probe||'',...(assessment?{assessment:item.assessment}:{})}))throw new Error('请先保存修订或撤销未保存内容，再审核当前版本');await api('/api/teacher/workbench/items/'+selected+'/review',{expected_digest:current.digest,status,notes:notes.value});toast('已记录本地教师审核动作');await refresh();}))));
+  box.append(p('已分配任务使用其原始题目快照；修订不会改写历史作答。','fine'));
+  if(current.history.length)box.append(el('details',{},el('summary',{},'修订历史与恢复'),...current.history.map(h=>el('div',{class:'row'},p(h.created+' · '+h.notes,'fine'),button('恢复此修订前内容',async()=>{await api('/api/teacher/workbench/items/'+selected+'/restore',{history_id:h.id,expected_digest:current.digest,notes:notes.value});await refresh();})))));
+  const card=area(JSON.stringify(current.card,null,2),'修订知识点卡片',8),digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(current.card))),cardDigest=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  content.append(panel('关联知识点（高级）',p('修改知识点会使该知识点下全部题目的审核失效。请先在上方填写依据。','fine'),el('details',{},el('summary',{},item.concept_id+' · 查看或修改教学卡片'),card,current.editable?button('保存知识点修订',async()=>{await api('/api/teacher/workbench/concepts/'+course+'/'+item.concept_id,{card:JSON.parse(card.value),expected_digest:cardDigest,notes:notes.value});await refresh();}):null)));
+  return;
+ }
+ if(tab==='回答证据'){
+  const data=await api('/api/teacher/workbench'),answers=data.answers.filter(a=>a.course_id===course);
+  content.append(p('断言引用仅核验“来自本轮资料”，不自动证明语义成立。请逐条对照原文。历史 v0.5 回答不冒充新版断言结果。','fine'));
+  if(!answers.length)content.append(panel('暂无待审回答',p('使用真实模型完成教学预览后，回答自动进入此处。离线资料导读不伪造模型断言。')));
+  for(const a of answers){const r=a.result,box=panel(a.question,tag(a.status),p('模型证据判断：'+(r.model_answer_status||(r.model_feedback?'教学反馈：以服务端核验为准':'历史协议未分项'))),p(r.model_answer||r.model_feedback),r.model_feedback_candidate?p('模型原候选被一致性守卫拒绝：'+r.model_feedback_candidate,'fine'):null);content.append(box);const verdicts=[];
+   for(const c of r.model_claims||[]){const select=el('select',{'aria-label':'断言 '+c.index+' 审核结论'},...['uncertain','supported','unsupported'].map(v=>el('option',{value:v},v))),note=area('','断言 '+c.index+' 审核依据',2);verdicts.push({index:c.index,select,note});box.append(el('details',{open:''},el('summary',{},'断言 '+(c.index+1)+'：'+c.text),p(c.citation_ids.join(' / '),'fine'),...(c.source_excerpts||[]).map(q=>el('pre',{style:'white-space:pre-wrap'},JSON.stringify(q,null,2))),select,note));}
+   if(r.model_feedback)box.append(el('details',{},el('summary',{},'查看服务端作答核验与提示记录'),el('pre',{style:'white-space:pre-wrap'},JSON.stringify({correct:r.correct,submitted_answer:r.submitted_answer,submitted_explanation:r.submitted_explanation,hints_used:r.hints_used,independent_evidence:r.independent_evidence,next_action:r.next_action,diagnostic_evidence:r.diagnostic_evidence,feedback_review:r.model_feedback_review},null,2))));
+   box.append(el('details',{},el('summary',{},'检索原文与定位'),...(r.citations||[]).map(c=>panel(c.id,p(JSON.stringify(c.locator),'fine'),p(c.excerpt)))));
+   const notes=area('','回答整体审核依据 '+a.id,2);box.append(notes,el('div',{class:'row'},...[['approved','通过'],['needs_revision','需修订'],['rejected','退回']].map(([status,label])=>button(label,async()=>{await api('/api/teacher/workbench/answers/'+a.id+'/review',{expected_digest:a.content_digest,status,notes:notes.value,claims:verdicts.map(v=>({index:v.index,verdict:v.select.value,notes:v.note.value}))});await refresh();}))));
+  }return;
+ }
+ const lab=await api('/api/teacher/eval-lab'),cases=lab.cases.filter(c=>c.course_id===course);content.append(panel('课程评测候选工作台',el('div',{class:'row'},tag('开发 '+lab.counts.dev),tag('验证 '+lab.counts.validation),tag('封存 '+lab.counts.sealed),tag(lab.frozen?'本轮冻结':'参考待审')),p('80 条来自 v0.5 的合成候选。本页不展示封存参考。未审量规只检查课程隔离和引用结构，不给出回答质量通过率。'),el('div',{class:'row'},...['dev','validation'].map(partition=>button('运行'+(partition==='dev'?'开发集':'验证集')+'结构检查',async()=>{await api('/api/teacher/eval-lab/run',{partition});await refresh();})),button('冻结已审核版本',async()=>{await api('/api/teacher/eval-lab/freeze',{});await refresh();}),button('运行封存汇总',async()=>{await api('/api/teacher/eval-lab/run',{partition:'test'});await refresh();})),p('冻结前需完成 60 条开发/验证参考审核，并通过接口提交独立封存复核人的文件哈希和依据；独立身份仍需线下确认。','fine')));
+ if(cases.length){if(!cases.some(c=>c.id===caseId))caseId=cases[0].id;const c=cases.find(c=>c.id===caseId),choose=el('select',{'aria-label':'评测案例',onChange:async e=>{caseId=e.target.value;await refresh();}},...cases.map(c=>el('option',{value:c.id},c.id+' / '+c.partition+' / '+c.review.status)));choose.value=caseId;const reference=area(JSON.stringify(c.reference,null,2),'评测参考 JSON',10),notes=area('','评测参考审核依据',2);
+  content.append(panel('补齐可执行评价依据',choose,p(c.input.query),p('expected_boundary 可填 evidence / insufficient / partial；有据回答需在 expected_sections 指定章节定位关键词。开放回答语义另行审核。','fine'),reference,notes,...[['approved','确认参考'],['needs_revision','保存待修订参考']].map(([status,label])=>button(label,async()=>{await api('/api/teacher/eval-lab/cases/'+c.id+'/review',{reference:JSON.parse(reference.value),expected_digest:c.digest,status,notes:notes.value});await refresh();}))));
+ }
+ content.append(panel('运行记录',table(['分区','总数','结构符合','参考待审','语义质量'],lab.runs.map(r=>[r.partition,r.total,r.structural_passed,r.pending_reference,r.semantic_quality]))));
+}

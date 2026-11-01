@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.0",
+  "course_id": "python",
+  "version": "0.1.0",
+  "title": "Python 基础示范课包",
+  "review_status": "draft_not_teacher_approved",
+  "concepts": [
+    {
+      "id": "lists",
+      "title": "列表对象与浅拷贝",
+      "learning_objective": "能解释列表对象与浅拷贝，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-lists-1",
+        "EV-lists-2"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "range",
+      "title": "循环与边界",
+      "learning_objective": "能解释循环与边界，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-range-1"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "defaults",
+      "title": "默认参数与可变对象",
+      "learning_objective": "能解释默认参数与可变对象，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-defaults-1"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    },
+    {
+      "id": "returns",
+      "title": "返回值与输出",
+      "learning_objective": "能解释返回值与输出，识别典型错误并在新案例中应用。",
+      "evidence_ids": [
+        "EV-returns-1",
+        "EV-returns-2"
+      ],
+      "prerequisites": [],
+      "prerequisites_note": "待教师按实际教学顺序确认；空列表不表示无先修知识",
+      "assessment_evidence": [
+        "结果或判断",
+        "解释与反例",
+        "提示依赖",
+        "新题复查"
+      ],
+      "remediation": [
+        "概念提示",
+        "局部示例",
+        "解释矛盾追问",
+        "迁移复查"
+      ]
+    }
+  ],
+  "required_capabilities": [
+    "retrieve_evidence",
+    "generate_task",
+    "verify_submission"
+  ],
+  "teaching_policy": {
+    "mode": "learning",
+    "state_writer": "teaching_kernel_only",
+    "insufficient_evidence": "unconfirmed",
+    "mastery_rule": "不能仅据单次正确、完整答案后照抄或解释矛盾判独立掌握"
+  },
+  "grading": {
+    "objective": "reference output / structured check",
+    "open": "required points + unacceptable claims; human review pending"
+  },
+  "data_access": {
+    "learning": "public/learning_inputs.jsonl",
+    "eval_reference": "evaluator_only; never mount in student runtime"
+  }
+}

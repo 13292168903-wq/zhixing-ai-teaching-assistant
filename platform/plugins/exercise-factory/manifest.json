@@ -1,0 +1,26 @@
+{
+  "id": "exercise_factory",
+  "version": "0.7.0",
+  "title": "教学数据生成",
+  "dependencies": [
+    "retrieve_evidence"
+  ],
+  "capabilities": [
+    "exercise_factory"
+  ],
+  "operations": [
+    "generate",
+    "generate_program",
+    "independent"
+  ],
+  "entry": "plugins/exercise-factory/index.mjs",
+  "sdk_version": "1",
+  "trusted": true,
+  "configuration": {
+    "mode": [
+      "offline",
+      "longcat"
+    ],
+    "course_binding_required": true
+  }
+}

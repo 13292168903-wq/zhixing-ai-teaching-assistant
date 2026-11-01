@@ -1,0 +1,13 @@
+{
+  "total": 80,
+  "families": 20,
+  "partitions": {
+    "development": 40,
+    "validation": 20,
+    "sealed": 20
+  },
+  "family_overlap": 0,
+  "semantic_accuracy": "not_measured_pending_teacher_labels",
+  "transfer_candidates": 12,
+  "source_license": "Project-authored CC-BY-4.0, based on Python PSF docs; pending content review"
+}

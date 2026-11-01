@@ -1,0 +1,32 @@
+{
+  "python_pilot": {
+    "id": "9da4996597113779ea832d576c99da72",
+    "course_id": "python_pilot",
+    "data_version": "pilot-eval-0.4.0",
+    "partition": "test",
+    "version": "baseline",
+    "config_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "total": 10,
+    "passed": 9,
+    "critical_failures": 0,
+    "open_answer_quality": "pending_human_review",
+    "mode": "offline_workflow_and_bm25_checks",
+    "real_model_calls": 0,
+    "created": "2026-10-20T15:29:03.610Z"
+  },
+  "ai_literacy_pilot": {
+    "id": "e2460a966136a238b9a59b58adb4a231",
+    "course_id": "ai_literacy_pilot",
+    "data_version": "pilot-eval-0.4.0",
+    "partition": "test",
+    "version": "baseline",
+    "config_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "total": 10,
+    "passed": 9,
+    "critical_failures": 0,
+    "open_answer_quality": "pending_human_review",
+    "mode": "offline_workflow_and_bm25_checks",
+    "real_model_calls": 0,
+    "created": "2026-10-20T15:29:03.657Z"
+  }
+}

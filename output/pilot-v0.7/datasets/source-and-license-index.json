@@ -1,0 +1,504 @@
+[
+  {
+    "id": "mat-ce0dec4c43ad099740f91b62a0bb27b1-6",
+    "concept_id": "lists",
+    "text": "浅拷贝 shallow copy 建立新的外层容器，并把原容器中的对象引用放进新容器。它不会递归复制每一个内部对象。因此对于 nested list（嵌套列表），外层是不同列表，内部列表仍可共享。替换外层某个位置与修改共享内层列表是不同操作。",
+    "url": "https://docs.python.org/3.13/library/copy.html",
+    "locator": {
+      "paragraph": 6,
+      "section": "Shallow copy and nested lists：浅拷贝与嵌套列表"
+    },
+    "material_id": "mat-ce0dec4c43ad099740f91b62a0bb27b1",
+    "material_version": "405a8eb52428/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese adaptation and example, CC-BY-4.0; based on PSF docs; pending review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-ce0dec4c43ad099740f91b62a0bb27b1-5",
+    "concept_id": "lists",
+    "text": "## Shallow copy and nested lists：浅拷贝与嵌套列表",
+    "url": "https://docs.python.org/3.13/library/copy.html",
+    "locator": {
+      "paragraph": 5,
+      "section": "Shallow copy and nested lists：浅拷贝与嵌套列表"
+    },
+    "material_id": "mat-ce0dec4c43ad099740f91b62a0bb27b1",
+    "material_version": "405a8eb52428/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese adaptation and example, CC-BY-4.0; based on PSF docs; pending review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-166de12b4210bf1b0195ae0acf087179-1",
+    "concept_id": "lists",
+    "text": "Source code: Lib/copy.py Assignment statements in Python do not copy objects, they create bindings between a target and an object. For collections that are mutable or contain mutable items, a copy is sometimes needed so one can change one copy without changing the other. This module provides generic shallow and deep copy operations (explained below). Interface summary: copy. copy ( obj ) Return a shallow copy of obj . copy. deepcopy ( obj [ , memo ] ) Return a deep copy of obj . copy. replace ( obj , / , ** changes ) Creates a new object of the same type as obj , replacing fields with values from changes . Added in version 3.13. exception copy. Error Raised for module specific errors. The difference between shallow and deep copying is only relevant for compound objects (objects that contai",
+    "url": "https://docs.python.org/3.13/library/copy.html",
+    "locator": {
+      "section": "copy — Shallow and deep copy operations",
+      "anchor": "module-copy"
+    },
+    "material_id": "mat-166de12b4210bf1b0195ae0acf087179",
+    "material_version": "6a3264a06021/text-pipeline-0.4.1",
+    "license": "PSF-2.0; examples 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:python_pilot:lists",
+    "concept_id": "lists",
+    "text": "列表赋值让两个名字引用同一对象；切片和 copy 建立新的外层列表，但不会递归复制嵌套对象。需要分别检查外层替换与内层原地修改。",
+    "url": "https://docs.python.org/3.13/tutorial/introduction.html#lists",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-9",
+    "concept_id": "range",
+    "text": "The break statement breaks out of the innermost enclosing for or while loop: >>> for n in range ( 2 , 10 ): ... for x in range ( 2 , n ): ... if n % x == 0 : ... print ( f \" { n } equals { x } * { n // x } \" ) ... break ... 4 equals 2 * 2 6 equals 2 * 3 8 equals 2 * 4 9 equals 3 * 3 The continue statement continues with the next iteration of the loop: >>> for num in range ( 2 , 10 ): ... if num % 2 == 0 : ... print ( f \"Found an even number { num } \" ) ... continue ... print ( f \"Found an odd number { num } \" ) ... Found an even number 2 Found an odd number 3 Found an even number 4 Found an odd number 5 Found an even number 6 Found an odd number 7 Found an even number 8 Found an odd number 9",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.4. break and continue Statements",
+      "anchor": "break-and-continue-statements"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-10",
+    "concept_id": "range",
+    "text": "In a for or while loop the break statement may be paired with an else clause. If the loop finishes without executing the break , the else clause executes. In a for loop, the else clause is executed after the loop finishes its final iteration, that is, if no break occurred. In a while loop, it’s executed after the loop’s condition becomes false. In either kind of loop, the else clause is not executed if the loop was terminated by a break . Of course, other ways of ending the loop early, such as a return or a raised exception, will also skip execution of the else clause. This is exemplified in the following for loop, which searches for prime numbers: >>> for n in range ( 2 , 10 ): ... for x in range ( 2 , n ): ... if n % x == 0 : ... print ( n , 'equals' , x , '*' , n // x ) ... break ... el",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.5. else Clauses on Loops",
+      "anchor": "else-clauses-on-loops"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-6",
+    "concept_id": "range",
+    "text": "If you do need to iterate over a sequence of numbers, the built-in function range() comes in handy. It generates arithmetic progressions: >>> for i in range ( 5 ): ... print ( i ) ... 0 1 2 3 4 The given end point is never part of the generated sequence; range(10) generates 10 values, the legal indices for items of a sequence of length 10. It is possible to let the range start at another number, or to specify a different increment (even negative; sometimes this is called the ‘step’): >>> list ( range ( 5 , 10 )) [5, 6, 7, 8, 9] >>> list ( range ( 0 , 10 , 3 )) [0, 3, 6, 9] >>> list ( range ( - 10 , - 100 , - 30 )) [-10, -40, -70] To iterate over the indices of a sequence, you can combine range() and len() as follows: >>> a = [ 'Mary' , 'had' , 'a' , 'little' , 'lamb' ] >>> for i in range (",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.3. The range() Function",
+      "anchor": "the-range-function"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:python_pilot:range",
+    "concept_id": "range",
+    "text": "range 包含起点、不包含终点；步长影响方向和取值。break 会提前结束循环并跳过循环 else；continue 跳过当前轮剩余语句。",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html#the-range-function",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-33",
+    "concept_id": "defaults",
+    "text": "e the file?', 2) or even giving all arguments: ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!') This example also introduces the in keyword. This tests whether or not a sequence contains a certain value. The default values are evaluated at the point of function definition in the defining scope, so that i = 5 def f ( arg = i ): print ( arg ) i = 6 f () will print 5 . Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls: def f ( a , L = []): L . append ( a ) return L print ( f ( 1 )) print ( f ( 2 )) print ( f ( 3 )) This will print [ 1 ] [ 1 , 2 ] [ 1 , 2",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.9.1. Default Argument Values",
+      "anchor": "default-argument-values"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-32",
+    "concept_id": "defaults",
+    "text": "The most useful form is to specify a default value for one or more arguments. This creates a function that can be called with fewer arguments than it is defined to allow. For example: def ask_ok ( prompt , retries = 4 , reminder = 'Please try again!' ): while True : reply = input ( prompt ) if reply in { 'y' , 'ye' , 'yes' }: return True if reply in { 'n' , 'no' , 'nop' , 'nope' }: return False retries = retries - 1 if retries < 0 : raise ValueError ( 'invalid user response' ) print ( reminder ) This function can be called in several ways: giving only the mandatory argument: ask_ok('Do you really want to quit?') giving one of the optional arguments: ask_ok('OK to overwrite the file?', 2) or even giving all arguments: ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!') This e",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.9.1. Default Argument Values",
+      "anchor": "default-argument-values"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-37",
+    "concept_id": "defaults",
+    "text": "e of the arguments accepted by the function (e.g. actor is not a valid argument for the parrot function), and their order is not important. This also includes non-optional arguments (e.g. parrot(voltage=1000) is valid too). No argument may receive a value more than once. Here’s an example that fails due to this restriction: >>> def function ( a ): ... pass ... >>> function ( 0 , a = 0 ) Traceback (most recent call last): File \"<stdin>\" , line 1 , in <module> TypeError : function() got multiple values for argument 'a' When a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict ) containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form *name (described in",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.9.2. Keyword Arguments",
+      "anchor": "keyword-arguments"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:python_pilot:defaults",
+    "concept_id": "defaults",
+    "text": "默认参数在函数定义时求值。省略可变默认实参的多次调用可能共享对象；None 哨兵可在函数体中创建新列表。显式实参和局部重新绑定需要分别分析。",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html#default-argument-values",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-34",
+    "concept_id": "returns",
+    "text": "]): L . append ( a ) return L print ( f ( 1 )) print ( f ( 2 )) print ( f ( 3 )) This will print [ 1 ] [ 1 , 2 ] [ 1 , 2 , 3 ] If you don’t want the default to be shared between subsequent calls, you can write the function like this instead: def f ( a , L = None ): if L is None : L = [] L . append ( a ) return L",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.9.1. Default Argument Values",
+      "anchor": "default-argument-values"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-68de4892802719ab656f20099836f35f-5",
+    "concept_id": "returns",
+    "text": "> fruits . index ( 'banana' ) 3 >>> fruits . index ( 'banana' , 4 ) # Find next banana starting at position 4 6 >>> fruits . reverse () >>> fruits ['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange'] >>> fruits . append ( 'grape' ) >>> fruits ['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape'] >>> fruits . sort () >>> fruits ['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear'] >>> fruits . pop () 'pear' You might have noticed that methods like insert , remove or sort that only modify the list have no return value printed – they return the default None . [ 1 ] This is a design principle for all mutable data structures in Python. Another thing you might notice is that not all data can be sorted or compared. For instance, [None, 'hello',",
+    "url": "https://docs.python.org/3.13/tutorial/datastructures.html",
+    "locator": {
+      "section": "5.1. More on Lists",
+      "anchor": "more-on-lists"
+    },
+    "material_id": "mat-68de4892802719ab656f20099836f35f",
+    "material_version": "cb3bd2f67923/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-16050c023f25a5eacc10a1e91957f968-28",
+    "concept_id": "returns",
+    "text": "return statement do return a value, albeit a rather boring one. This value is called None (it’s a built-in name). Writing the value None is normally suppressed by the interpreter if it would be the only value written. You can see it if you really want to using print() : >>> fib ( 0 ) >>> print ( fib ( 0 )) None It is simple to write a function that returns a list of the numbers of the Fibonacci series, instead of printing it: >>> def fib2 ( n ): # return Fibonacci series up to n ... \"\"\"Return a list containing the Fibonacci series up to n.\"\"\" ... result = [] ... a , b = 0 , 1 ... while a < n : ... result . append ( a ) # see below ... a , b = b , a + b ... return result ... >>> f100 = fib2 ( 100 ) # call it >>> f100 # write the result [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89] This example",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html",
+    "locator": {
+      "section": "4.8. Defining Functions",
+      "anchor": "defining-functions"
+    },
+    "material_id": "mat-16050c023f25a5eacc10a1e91957f968",
+    "material_version": "b5e466295554/text-pipeline-0.4.1",
+    "license": "PSF-2.0; documentation code also 0BSD",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:python_pilot:returns",
+    "concept_id": "returns",
+    "text": "print 产生可见输出，return 将值交给调用者并结束当前函数。没有显式返回值时得到 None；原地修改和返回值是不同维度。",
+    "url": "https://docs.python.org/3.13/tutorial/controlflow.html#defining-functions",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-836",
+    "concept_id": "overfit",
+    "text": "#fundamentals The process of determining the ideal parameters (weights and biases) comprising a model . During training, a system reads in examples and gradually adjusts parameters. Training uses each example anywhere from a few times to billions of times. See Supervised Learning in the Introduction to ML course for more information.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "training",
+      "anchor": "training"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-365",
+    "concept_id": "train_infer",
+    "text": "#fundamentals #generativeAI In traditional machine learning, the process of making predictions by applying a trained model to unlabeled examples . See Supervised Learning in the Intro to ML course to learn more. In large language models , inference is the process of using a trained model to generate a response to an input prompt . Inference has a somewhat different meaning in statistics. See the Wikipedia article on statistical inference for details.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "inference",
+      "anchor": "inference"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-570",
+    "concept_id": "train_infer",
+    "text": "#fundamentals The weights and biases that a model learns during training . For example, in a linear regression model, the parameters consist of the bias ( b ) and all the weights ( w 1 , w 2 , and so on) in the following formula: $$y' = b + w_1x_1 + w_2x_2 + … w_nx_n$$ In contrast, hyperparameters are the values that you (or a hyperparameter tuning service) supply to the model. For example, learning rate is a hyperparameter.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "parameter",
+      "anchor": "parameter"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:ai_literacy_pilot:train_infer",
+    "concept_id": "train_infer",
+    "text": "训练通常从数据和损失中调整模型参数；推理应用已训练的模型生成预测或回复。加入上下文、示例或修改提示词，本身不能证明模型权重已更新。",
+    "url": "https://developers.google.com/machine-learning/glossary#inference",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-873",
+    "concept_id": "splits",
+    "text": "#fundamentals The subset of the dataset that performs initial evaluation against a trained model . Typically, you evaluate the trained model against the validation set several times before evaluating the model against the test set . Traditionally, you divide the examples in the dataset into the following three distinct subsets: a training set a validation set a test set Ideally, each example in the dataset should belong to only one of the preceding subsets. For example, a single example shouldn't belong to both the training set and the validation set. See Datasets: Dividing the original dataset in Machine Learning Crash Course for more information.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "validation set",
+      "anchor": "validation-set"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-812",
+    "concept_id": "splits",
+    "text": "A subset of the dataset reserved for testing a trained model . Traditionally, you divide examples in the dataset into the following three distinct subsets: a training set a validation set a test set Each example in a dataset should belong to only one of the preceding subsets. For instance, a single example shouldn't belong to both the training set and the test set. The training set and validation set are both closely tied to training a model. Because the test set is only indirectly associated with training, test loss is a less biased, higher quality metric than training loss or validation loss . See Datasets: Dividing the original dataset in Machine Learning Crash Course for more information.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "test set",
+      "anchor": "test-set"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:ai_literacy_pilot:splits",
+    "concept_id": "splits",
+    "text": "训练集用于拟合，验证集用于选择配置，最终测试应在比较方案冻结后评价。相关记录、同模板改写应按家族分组，反复用测试选择会破坏其独立性。",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-564",
+    "concept_id": "overfit",
+    "text": "#fundamentals Creating a model that matches the training data so closely that the model fails to make correct predictions on new data. Regularization can reduce overfitting. Training on a large and diverse training set can also reduce overfitting.",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "overfitting",
+      "anchor": "overfitting"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-302",
+    "concept_id": "overfit",
+    "text": "#fundamentals A model's ability to make correct predictions on new, previously unseen data. A model that can generalize is the opposite of a model that is overfitting .",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "generalization",
+      "anchor": "generalization"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:ai_literacy_pilot:overfit",
+    "concept_id": "overfit",
+    "text": "训练与未见数据表现的差距是排查过拟合的线索，也应检查分布和数据问题。训练高分不能保证泛化；重复复制样本不自动增加独立信息。",
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-457a85d072b6dec2294b823ea715d4ce-339",
+    "concept_id": "hallucination",
+    "text": "#generativeAI The production of plausible-seeming but factually incorrect output by a generative AI model that purports to be making an assertion about the real world. For example, a generative AI model that claims that Barack Obama died in 1865 is hallucinating .",
+    "url": "https://developers.google.com/machine-learning/glossary",
+    "locator": {
+      "section": "hallucination",
+      "anchor": "hallucination"
+    },
+    "material_id": "mat-457a85d072b6dec2294b823ea715d4ce",
+    "material_version": "dd5283cf052b/text-pipeline-0.4.1",
+    "license": "CC-BY-4.0 content; Apache-2.0 code; exceptions apply",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-5f38d613112c7a78ccfe81f533e4746d-3",
+    "concept_id": "hallucination",
+    "text": "## Hallucination and reference verification：幻觉与参考文献核验",
+    "url": "https://developers.google.com/machine-learning/glossary#hallucination",
+    "locator": {
+      "paragraph": 3,
+      "section": "Hallucination and reference verification：幻觉与参考文献核验"
+    },
+    "material_id": "mat-5f38d613112c7a78ccfe81f533e4746d",
+    "material_version": "3e537f6a7590/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese teaching notes CC-BY-4.0; concepts adapted from Google CC-BY-4.0 glossary; pending review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-5f38d613112c7a78ccfe81f533e4746d-4",
+    "concept_id": "hallucination",
+    "text": "生成式 AI（generative AI）可能生成看似合理但不准确的内容，也可能编造作者、论文题目或标识符。规范的参考文献格式不证明文献真实存在，网页链接可打开也不证明原文支持回答。不能直接把生成内容中的引用当成已核实事实。",
+    "url": "https://developers.google.com/machine-learning/glossary#hallucination",
+    "locator": {
+      "paragraph": 4,
+      "section": "Hallucination and reference verification：幻觉与参考文献核验"
+    },
+    "material_id": "mat-5f38d613112c7a78ccfe81f533e4746d",
+    "material_version": "3e537f6a7590/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese teaching notes CC-BY-4.0; concepts adapted from Google CC-BY-4.0 glossary; pending review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:ai_literacy_pilot:hallucination",
+    "concept_id": "hallucination",
+    "text": "生成模型可能给出看似合理但事实不正确的内容。有效链接、规范引用或肯定语气都不能代替证据支持；检索增强仍需核对原文、版本和适用条件。",
+    "url": "https://developers.google.com/machine-learning/glossary#hallucination",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-3",
+    "concept_id": "mean",
+    "text": "## Mean：算术均值",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 3,
+      "section": "Mean：算术均值"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-4",
+    "concept_id": "mean",
+    "text": "均值（平均数）等于观测值总和除以观测个数。例如 [2,4,6] 的总和为12、个数为3，均值为4。空数据不能直接求均值。异常值可能显著影响均值，不能把均值当成每个观测的实际取值。",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 4,
+      "section": "Mean：算术均值"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-6",
+    "concept_id": "median",
+    "text": "中位数需要先排序。奇数个观测取中间位置的值；偶数个观测取中间两个值的算术平均。例如 [1,3,7,9] 的中位数是 (3+7)/2=5，中位数不必是原数据中的某个值。",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 6,
+      "section": "Median：中位数"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:statistics_pilot:mean",
+    "concept_id": "mean",
+    "text": "算术均值是观测值总和除以观测个数；异常值会影响均值。空数据不能直接求均值。",
+    "url": "https://docs.python.org/3.13/library/statistics.html#statistics.mean",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-5",
+    "concept_id": "median",
+    "text": "## Median：中位数",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 5,
+      "section": "Median：中位数"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-1",
+    "concept_id": "sample_variance",
+    "text": "# 统计学基础：均值、中位数与样本方差",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 1,
+      "section": "统计学基础：均值、中位数与样本方差"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:statistics_pilot:median",
+    "concept_id": "median",
+    "text": "先按数值排序；奇数个观测取中间值，偶数个观测取中间两个数的算术平均。",
+    "url": "https://docs.python.org/3.13/library/statistics.html#statistics.median",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-7",
+    "concept_id": "sample_variance",
+    "text": "## Sample variance：样本方差",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 7,
+      "section": "Sample variance：样本方差"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "mat-050b8d1a7da854eae937cffae952a8a6-8",
+    "concept_id": "sample_variance",
+    "text": "本课使用样本方差：先计算均值，将每个观测与均值之差平方，再求和，最后除以 n-1。至少需要两个观测。[2,4,6] 的均值为4，离差平方和为8，样本方差为8/(3-1)=4。总体方差则采用 n 分母；本课题目明确要求样本方差时不要混用。",
+    "url": "https://docs.python.org/3.13/library/statistics.html",
+    "locator": {
+      "paragraph": 8,
+      "section": "Sample variance：样本方差"
+    },
+    "material_id": "mat-050b8d1a7da854eae937cffae952a8a6",
+    "material_version": "94809d8ed658/text-pipeline-0.4.1",
+    "license": "Project-authored Chinese notes and fixed examples CC-BY-4.0; based on Python docs PSF-2.0; pending human review",
+    "source_kind": "versioned_material_chunk"
+  },
+  {
+    "id": "card:statistics_pilot:sample_variance",
+    "concept_id": "sample_variance",
+    "text": "这里使用样本方差：各观测与均值之差的平方和除以 n-1，要求至少两个观测。不要与除以 n 的总体方差混用。",
+    "url": "https://docs.python.org/3.13/library/statistics.html#statistics.variance",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  },
+  {
+    "id": "card:programming_pilot:stdin_stdout",
+    "concept_id": "stdin_stdout",
+    "text": "程序通过标准输入读取数据，通过标准输出返回结果。必须遵守题目给定的输入范围和输出格式；测试通过只说明在这些输入上符合预期，不证明程序对所有输入正确。",
+    "url": "https://docs.python.org/3.13/library/functions.html#input",
+    "license": "Project-authored/adapted teaching card; underlying sources retained; pending review",
+    "source_kind": "draft_course_card_not_an_original_quote"
+  }
+]

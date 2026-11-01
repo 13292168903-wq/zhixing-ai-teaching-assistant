@@ -1,0 +1,26 @@
+{
+  "id": "student_simulator",
+  "version": "0.7.0",
+  "title": "学生模拟",
+  "dependencies": [
+    "generate_task",
+    "verify_submission",
+    "teaching_policy"
+  ],
+  "capabilities": [
+    "student_simulator"
+  ],
+  "operations": [
+    "utterance"
+  ],
+  "entry": "plugins/student-simulator/index.mjs",
+  "sdk_version": "1",
+  "trusted": true,
+  "configuration": {
+    "mode": [
+      "offline",
+      "longcat"
+    ],
+    "course_binding_required": true
+  }
+}

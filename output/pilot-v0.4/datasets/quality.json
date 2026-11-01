@@ -1,0 +1,89 @@
+{
+  "version": "pilot-eval-0.4.0",
+  "total": 80,
+  "counts": {
+    "dev": 40,
+    "validation": 20,
+    "test": 20
+  },
+  "family_cross_partition": 0,
+  "all_pending_human_review": true,
+  "near_duplicate_suspicions": [
+    {
+      "a": "P04-python-13-1",
+      "b": "P04-python-13-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-python-14-1",
+      "b": "P04-python-14-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-python-15-1",
+      "b": "P04-python-15-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-python-16-1",
+      "b": "P04-python-16-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-python-05-1",
+      "b": "P04-python-17-1",
+      "same_partition": true,
+      "resolution": "same_partition_control_reused_for_distinct_contract_not_independent"
+    },
+    {
+      "a": "P04-python-19-1",
+      "b": "P04-python-19-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-ai_literacy-13-1",
+      "b": "P04-ai_literacy-13-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-ai_literacy-14-1",
+      "b": "P04-ai_literacy-14-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-ai_literacy-15-1",
+      "b": "P04-ai_literacy-15-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-ai_literacy-16-1",
+      "b": "P04-ai_literacy-16-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    },
+    {
+      "a": "P04-ai_literacy-05-1",
+      "b": "P04-ai_literacy-17-1",
+      "same_partition": true,
+      "resolution": "same_partition_control_reused_for_distinct_contract_not_independent"
+    },
+    {
+      "a": "P04-ai_literacy-19-1",
+      "b": "P04-ai_literacy-19-2",
+      "same_partition": true,
+      "resolution": "paired_control_same_family_and_partition"
+    }
+  ],
+  "near_duplicate_cross_partition": 0,
+  "content_sha256": "6bdd4dbc24636a99b47066e01621c7029cc89f0146e9d47386faa4ea66889f40",
+  "old_bootstrap_modified": false,
+  "semantic_independence": "not_claimed_until_manual_review"
+}

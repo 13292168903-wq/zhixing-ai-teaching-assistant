@@ -1,0 +1,17 @@
+{
+  "total": 80,
+  "counts": {
+    "dev": 40,
+    "validation": 20,
+    "test": 20
+  },
+  "authored_families": 40,
+  "leakage_groups": 39,
+  "known_paraphrase_groups_merged": 1,
+  "family_cross_partition": 0,
+  "sha256": "276ccac3c7685587f87ef67dfb2cb086bc01008b2655925c6cfb1d30f1affb2c",
+  "reference_status": "human_adjudication_required; qualitative rubrics, no fabricated objective scores",
+  "semantic_near_duplicate_review": "pending; shared concepts do not by themselves establish independent transfer",
+  "final_test_opened": false,
+  "v04_holdout_read": false
+}
